@@ -1,81 +1,105 @@
-# 💰 Z-U-A Bank — Java Console Banking System
+# 🏦 Z-U-A Bank Management System (Java Console Project)
 
-A simple **banking management system** built in **Java** using basic file handling (no databases).
-This project simulates real-world banking operations such as creating accounts, deposits, withdrawals, and viewing transaction history — all via a command-line interface.
-
----
-
-## 🧠 Overview
-
-This project demonstrates how file I/O, exception handling, and modular programming can be used to implement core banking operations securely and efficiently.
-It’s perfect for **BS Software Engineering** students learning Java fundamentals, object-oriented design, and persistent data storage using text files.
+A simple **Java-based Banking Management System** that simulates essential banking operations like account creation, deposits, withdrawals, and transaction history — all through a console interface.
+This project uses **file handling** (`.txt` files) to manage user data, transactions, and owner login credentials, making it ideal for beginners learning about **Java I/O**, **control structures**, and **basic data persistence**.
 
 ---
 
-## ⚙️ Features
+## 🚀 Features
 
-✅ **Create Account** – Register a new user and generate a unique account number.
-✅ **Deposit Money** – Add funds to an existing account.
-✅ **Withdraw Money** – Withdraw funds while checking for sufficient balance.
-✅ **Transaction History** – View all deposits and withdrawals with timestamps.
-✅ **Account Details** – Retrieve user details and current balance.
-✅ **File Storage** – User data and transactions are stored in plain text files.
-✅ **Error Handling** – Handles invalid inputs and file errors gracefully.
+### 👤 Owner Login System
+
+* Secure login authentication using stored credentials (`Owner_login.txt`).
+* Default credentials auto-created if the file doesn't exist:
+
+  ```
+  Username: admin
+  Password: admin123
+  ```
+* Limits login attempts to prevent unauthorized access.
+
+### 💳 Account Management
+
+* Create new customer accounts with personal information and unique account numbers.
+* All account details are saved in `User_Data.txt`.
+
+### 💰 Transactions
+
+* **Deposit Funds:** Add money to an account.
+* **Withdraw Funds:** Withdraw funds with balance checks.
+* **Transaction Logging:** Every transaction is recorded in `Transaction_History.txt` with timestamps.
+
+### 📜 Data Retrieval
+
+* View account details by entering the account number.
+* View complete transaction history for any account.
+
+### 📁 File-Based Storage
+
+All data is persisted in plain text files:
+
+* `Owner_login.txt` → stores login credentials.
+* `User_Data.txt` → stores user account information.
+* `Transaction_History.txt` → stores logs of deposits and withdrawals.
 
 ---
 
-## 🧩 Technologies Used
+## 🧠 Technologies Used
 
-* **Language:** Java (JDK 17 or later recommended)
-* **Libraries:**
+* **Language:** Java
+* **Concepts:** File Handling, Exception Handling, OOP (Basic), Control Structures
+* **IDE Recommended:** IntelliJ IDEA / Eclipse / VS Code with Java Extension Pack
 
-  * `java.io` – for file handling
-  * `java.text.SimpleDateFormat` – for date formatting
-  * `java.util` – for utilities like Random, Scanner, List, etc.
+---
+
+## ⚙️ How to Run
+
+### 1️⃣ Clone this repository
+
+```bash
+git clone https://github.com/your-username/ZUA-Bank-Management-System.git
+```
+
+### 2️⃣ Navigate to the project folder
+
+```bash
+cd ZUA-Bank-Management-System
+```
+
+### 3️⃣ Compile and Run the program
+
+```bash
+javac Main.java
+java Main
+```
 
 ---
 
 ## 🗂️ File Structure
 
 ```
-📁 ZUABank/
+ZUA-Bank-Management-System/
 │
-├── Main.java                  # Main program file
-├── User_Data.txt              # Stores account information
+├── Main.java                  # Main source code
+├── User_Data.txt              # Stores all account details
 ├── Transaction_History.txt    # Stores transaction logs
+├── Owner_login.txt            # Stores owner login credentials
 └── README.md                  # Documentation
 ```
 
 ---
 
-## 🚀 How to Run
-
-1. **Clone this repository**
-
-   ```bash
-   git clone https://github.com/your-username/ZUA-Bank.git
-   cd ZUA-Bank
-   ```
-
-2. **Compile the program**
-
-   ```bash
-   javac Main.java
-   ```
-
-3. **Run the program**
-
-   ```bash
-   java Main
-   ```
-
----
-
-## 🧾 Sample Output
+## 📸 Sample Output
 
 ```
-WELCOME TO Z-U-A Bank
+==============================
+       OWNER LOGIN
+==============================
+Username: admin
+Password: admin123
+Login successful! Welcome, admin!
 
+WELCOME TO Z-U-A Bank
 ==============================
           MAIN MENU
 ==============================
@@ -85,42 +109,20 @@ WELCOME TO Z-U-A Bank
 4: Check Transaction
 5: Get Account Details
 6: Exit
-
-Enter your choice: 1
---- Creating Account ---
-Enter Your Name: Zain
-Enter Your CNIC: 00000-0000000-0
-Enter Your Contact Number: 00000000000
-Enter Your Email: zain@example.com
-Enter Your Address: Pakistan
-Set Your 4-digit PIN: 1234
-
-Account Created Successfully!
-Your Account Number is: PK-546321
+Enter your choice:
 ```
 
 ---
 
-## 🛡️ Important Notes
+## 🧩 Future Enhancements
 
-* All user data is stored in `.txt` files (no database required).
-* The program uses **PINs** for basic user verification (you can extend this for login functionality).
-* Always run this program in a **trusted local environment** to avoid exposing sensitive data.
-
----
-
-## 🧠 Future Enhancements
-
-* 🔐 Add account login authentication using PINs.
-* 💳 Implement account transfer functionality.
-* 📊 Use JSON or databases (like SQLite or MySQL) for data management.
-* 🖥️ Develop a GUI (Swing or JavaFX).
-* 🌐 Convert to a RESTful API with Spring Boot for web integration.
-
----
+* Implement password encryption (e.g., using hashing).
+* Add account deletion and update functionality.
+* Integrate database (MySQL or SQLite) instead of text files.
+* Create a GUI version using JavaFX or Swing.
+* Add user login (separate from owner login).
 
 ## 👨‍💻 Author
 
 **Zain-ul-Abdeen**
-
----
+Student of BS Software Engineering
