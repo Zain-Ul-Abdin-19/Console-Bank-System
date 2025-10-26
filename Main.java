@@ -6,9 +6,20 @@ public class Main {
 
     static final String FILE_NAME = "User_Data.txt";
     static final String TRANSACTION_FILE = "Transaction_History.txt";
+    static final String LOGIN_FILE = "Owner_login.txt";
     static final Scanner input = new Scanner(System.in);
 
     public static void main(String[] args) {
+        // Initialize login file with default credentials if it doesn't exist
+        Initialize_Login_File();
+        
+        // Authenticate owner before showing main menu
+        if (!Owner_Login()) {
+            System.out.println("Too many failed attempts. System shutting down...");
+            System.exit(0);
+        }
+        
+        // If login successful, continue to main system
         System.out.println("WELCOME TO Z-U-A Bank");
 
         File file = new File(FILE_NAME);
@@ -36,6 +47,61 @@ public class Main {
                 }
                 default -> System.out.println("Invalid option, please try again.");
             }
+        }
+    }
+
+    // ============================= LOGIN SYSTEM =============================
+
+    static void Initialize_Login_File() {
+        File loginFile = new File(LOGIN_FILE);
+        if (!loginFile.exists()) {
+            try (FileWriter fw = new FileWriter(LOGIN_FILE)) {
+                // Set default credentials
+                fw.write("admin\n");
+                fw.write("admin123\n");
+                System.out.println("Default login credentials created: admin/admin123");
+            } catch (IOException e) {
+                System.out.println("Error creating login file: " + e.getMessage());
+            }
+        }
+    }
+
+    static boolean Owner_Login() {
+        System.out.println("==============================");
+        System.out.println("       OWNER LOGIN");
+        System.out.println("==============================");
+        
+        int attempts = 0;
+        final int MAX_ATTEMPTS = 3;
+        
+        while (attempts < MAX_ATTEMPTS) {
+            String username = Input_String("Username: ");
+            String password = Input_String("Password: ");
+            
+            if (Validate_Credentials(username, password)) {
+                System.out.println("Login successful! Welcome, " + username + "!");
+                return true;
+            } else {
+                attempts++;
+                System.out.println("Invalid credentials. Attempts remaining: " + (MAX_ATTEMPTS - attempts));
+                
+                if (attempts >= MAX_ATTEMPTS) {
+                    return false;
+                }
+            }
+        }
+        return false;
+    }
+
+    static boolean Validate_Credentials(String username, String password) {
+        try (BufferedReader br = new BufferedReader(new FileReader(LOGIN_FILE))) {
+            String storedUsername = br.readLine();
+            String storedPassword = br.readLine();
+            
+            return username.equals(storedUsername) && password.equals(storedPassword);
+        } catch (IOException e) {
+            System.out.println("Error reading login file: " + e.getMessage());
+            return false;
         }
     }
 
@@ -74,12 +140,19 @@ public class Main {
         System.out.println("\n==============================");
         System.out.println("          MAIN MENU");
         System.out.println("==============================");
-        System.out.println("1: Create Account");
-        System.out.println("2: Deposit");
-        System.out.println("3: Withdraw");
-        System.out.println("4: Check Transaction");
-        System.out.println("5: Get Account Details");
-        System.out.println("6: Exit");
+        List<String> Main_Menu_List = new ArrayList<>(
+            Arrays.asList(
+                "1: Create Account",
+                "2: Deposit",
+                "3: Withdraw",
+                "4: Check Transaction",
+                "5: Get Account Details",
+                "6: Exit"
+            )
+        );
+        for (String M_M_L : Main_Menu_List ){
+            System.out.println(M_M_L);
+        }
     }
 
     // ============================= ACCOUNT CREATION =============================
