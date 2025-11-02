@@ -49,8 +49,8 @@ The project follows a **modular design**:
 ### **Steps**
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/Z-U-A-Bank.git
-   cd Z-U-A-Bank
+   git clone https://github.com/Zain-Ul-Abdin-19/Bank-System-JAVA.git
+   cd Bank-System-JAVA
    ```
 2. Compile the code:
    ```bash
