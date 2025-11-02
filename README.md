@@ -1,128 +1,97 @@
-# 🏦 Z-U-A Bank Management System (Java Console Project)
+# 💳 Z-U-A Bank — Java Banking Management System
 
-A simple **Java-based Banking Management System** that simulates essential banking operations like account creation, deposits, withdrawals, and transaction history — all through a console interface.
-This project uses **file handling** (`.txt` files) to manage user data, transactions, and owner login credentials, making it ideal for beginners learning about **Java I/O**, **control structures**, and **basic data persistence**.
+Z-U-A Bank is a **desktop-based banking management system** built entirely in **Java Swing**.  
+It provides a simple, file-driven simulation of a real-world banking environment — including secure login, account creation, deposits, withdrawals, and transaction history tracking — all through an intuitive graphical interface.
 
 ---
 
 ## 🚀 Features
 
-### 👤 Owner Login System
+- 🔐 **Owner Login System**  
+  Default credentials are automatically generated (`admin / admin123`).
 
-* Secure login authentication using stored credentials (`Owner_login.txt`).
-* Default credentials auto-created if the file doesn't exist:
+- 👤 **Account Management**  
+  Create new bank accounts with unique account numbers and store user data in text files.
 
-  ```
-  Username: admin
-  Password: admin123
-  ```
-* Limits login attempts to prevent unauthorized access.
+- 💵 **Deposits & Withdrawals**  
+  Perform secure transactions that update account balances dynamically.
 
-### 💳 Account Management
+- 📜 **Transaction History**  
+  Each deposit or withdrawal is logged with a timestamp for audit purposes.
 
-* Create new customer accounts with personal information and unique account numbers.
-* All account details are saved in `User_Data.txt`.
+- 📂 **File-based Persistence**  
+  All data is stored locally using text files (`User_Data.txt`, `Transaction_History.txt`, `Owner_login.txt`).
 
-### 💰 Transactions
-
-* **Deposit Funds:** Add money to an account.
-* **Withdraw Funds:** Withdraw funds with balance checks.
-* **Transaction Logging:** Every transaction is recorded in `Transaction_History.txt` with timestamps.
-
-### 📜 Data Retrieval
-
-* View account details by entering the account number.
-* View complete transaction history for any account.
-
-### 📁 File-Based Storage
-
-All data is persisted in plain text files:
-
-* `Owner_login.txt` → stores login credentials.
-* `User_Data.txt` → stores user account information.
-* `Transaction_History.txt` → stores logs of deposits and withdrawals.
+- 🪟 **Intuitive Swing UI**  
+  Clean interface with modular panels, responsive layouts, and dialog-driven operations.
 
 ---
 
-## 🧠 Technologies Used
+## 🧠 System Architecture
 
-* **Language:** Java
-* **Concepts:** File Handling, Exception Handling, OOP (Basic), Control Structures
-* **IDE Recommended:** IntelliJ IDEA / Eclipse / VS Code with Java Extension Pack
+The project follows a **modular design**:
+
+| Component | Description |
+|------------|-------------|
+| `Main.java` | Core application class with GUI, logic, and event handling |
+| `User_Data.txt` | Stores all customer details and balances |
+| `Transaction_History.txt` | Logs deposits and withdrawals |
+| `Owner_login.txt` | Contains owner/admin credentials |
 
 ---
 
 ## ⚙️ How to Run
 
-### 1️⃣ Clone this repository
+### **Requirements**
+- Java JDK 8 or above
+- Any IDE that supports Java (IntelliJ IDEA, Eclipse, NetBeans, or VS Code)
 
-```bash
-git clone https://github.com/your-username/ZUA-Bank-Management-System.git
+### **Steps**
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/Z-U-A-Bank.git
+   cd Z-U-A-Bank
+   ```
+2. Compile the code:
+   ```bash
+   javac Main.java
+   ```
+3. Run the application:
+   ```bash
+   java Main
+   ```
+4. Login using default credentials:
+   ```
+   Username: admin
+   Password: admin123
+   ```
+
+---
+
+## 🧩 Project Structure
+
 ```
-
-### 2️⃣ Navigate to the project folder
-
-```bash
-cd ZUA-Bank-Management-System
-```
-
-### 3️⃣ Compile and Run the program
-
-```bash
-javac Main.java
-java Main
+📦 Z-U-A-Bank
+ ┣ 📜 Main.java
+ ┣ 📄 User_Data.txt
+ ┣ 📄 Transaction_History.txt
+ ┣ 📄 Owner_login.txt
+ ┗ 🖼️ logo.png (optional)
 ```
 
 ---
 
-## 🗂️ File Structure
+## 🧑‍💻 Author
 
-```
-ZUA-Bank-Management-System/
-│
-├── Main.java                  # Main source code
-├── User_Data.txt              # Stores all account details
-├── Transaction_History.txt    # Stores transaction logs
-├── Owner_login.txt            # Stores owner login credentials
-└── README.md                  # Documentation
-```
+**Zain-ul-Abdeen**  
+Bachelor of Software Engineering  
 
 ---
 
-## 📸 Sample Output
+## ⚠️ Disclaimer
 
-```
-==============================
-       OWNER LOGIN
-==============================
-Username: admin
-Password: admin123
-Login successful! Welcome, admin!
+This project is for **educational purposes only**.  
+It simulates a basic banking environment **without any real-world financial integration**.  
+Always ensure ethical use and responsible data handling.
 
-WELCOME TO Z-U-A Bank
-==============================
-          MAIN MENU
-==============================
-1: Create Account
-2: Deposit
-3: Withdraw
-4: Check Transaction
-5: Get Account Details
-6: Exit
-Enter your choice:
-```
-
----
-
-## 🧩 Future Enhancements
-
-* Implement password encryption (e.g., using hashing).
-* Add account deletion and update functionality.
-* Integrate database (MySQL or SQLite) instead of text files.
-* Create a GUI version using JavaFX or Swing.
-* Add user login (separate from owner login).
-
-## 👨‍💻 Author
-
-**Zain-ul-Abdeen**
-Student of BS Software Engineering
+**Made with ❤️ in Java Swing**
